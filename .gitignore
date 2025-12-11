@@ -1,0 +1,22 @@
+# IDE folders
+.idea/
+.vscode/
+.DS_Store
+
+
+
+# Node / React (frontend)
+node_modules/
+build/
+dist/
+
+# Java / Spring Boot (backend)
+moneymanager/target/
+moneymanager/.gradle/
+moneymanager/*.iml
+
+# Logs
+*.log
+
+# Environment variables (local only)
+.env

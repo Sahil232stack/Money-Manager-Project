@@ -31,7 +31,7 @@ This application helps users track income, expenses, categories, balance, and fi
 ## Tech Stack
 
 Frontend: React.js, Tailwind CSS, Axios, React Router, Context API  
-Backend: Java 17, Spring Boot, Spring Data JPA, Lombok, JWT  
+Backend: Java, Spring Boot, Spring Data JPA, Lombok, JWT  
 Database: MySQL  
 
 ------------------------------------------------------------

@@ -1,109 +1,120 @@
-# Money Manager – Personal Finance Tracking Web App
+💰 Money Manager – Personal Finance Tracking Web App
+A full-stack personal finance management web application built using Java Spring Boot and React.js, designed to help users track income, expenses, and financial trends through a secure and intuitive dashboard. This project demonstrates real-world backend development, REST API design, JWT-based authentication, and modern frontend state management—making it well-suited for backend / full-stack (3–5 LPA) roles.
 
-A full-stack Money Management Web Application built using Java Spring Boot (Backend) and React + Tailwind CSS (Frontend).
-This application helps users track income, expenses, categories, balance, and financial insights through a clean dashboard.
+🚀 Key Highlights
+JWT-based stateless authentication
+Clean REST API architecture
+Backend-calculated balance & analytics
+User-specific data isolation
+DTO validation and global exception handling
+React Context API for state management
+Axios interceptor for JWT handling
+Modular, reusable UI components
+Responsive UI with Tailwind CSS
 
-------------------------------------------------------------
+✨ Features
+🔐 Authentication & Security
+User registration and login
+JWT token generation & validation
+Stateless authentication using Spring Security
+CORS configuration for frontend–backend communication
 
-## Features
+💸 Transaction Management
+Add income and expense transactions
+Category-wise transaction tracking
+Delete transactions
+User-specific transaction history
 
-### Core Features
-- JWT-based authentication
-- Add and manage income and expenses
-- Category-wise transaction tracking
-- Charts and analytics
-- Monthly and yearly filters
-- Auto-calculated total balance
-- Transaction history
-- Responsive UI
+📊 Dashboard & Analytics
+Auto-calculated total balance
+Monthly and yearly filters
+Backend-driven analytics for charts
+Clean and responsive dashboard UI
 
-### Technical Features
-- REST API architecture
-- DTO validation
-- Global exception handling
-- React Context API for state management
-- Modular and reusable UI components
-- Environment-based configuration
-- CORS + JWT setup
+⚙️ Technical Features
+RESTful API architecture
+DTO-based request and response validation
+Global exception handling
+React Context API for global state management
+Environment-based configuration
 
-------------------------------------------------------------
+🛠️ Tech Stack
+Frontend
+React.js
+Tailwind CSS
+Axios
+React Router
+Context API
+Backend
+Java
+Spring Boot
+Spring Security
+Spring Data JPA
+JWT
+Lombok
+Database
+MySQL
 
-## Tech Stack
-
-Frontend: React.js, Tailwind CSS, Axios, React Router, Context API  
-Backend: Java, Spring Boot, Spring Data JPA, Lombok, JWT  
-Database: MySQL  
-
-------------------------------------------------------------
-
-## Project Structure
-
+🧱 Project Structure
 Money-Manager/
-- backend/
-  - controller/
-  - service/
-  - repository/
-  - model/
-  - config/
-  - dto/
-  - resources/application.properties
-- frontend/
-  - components/
-  - pages/
-  - context/
-  - assets/
-  - utils/
-- README.md
+├── backend/
+│ ├── controller/
+│ ├── service/
+│ ├── repository/
+│ ├── model/
+│ ├── dto/
+│ ├── config/
+│ └── resources/
+│ └── application.properties
+│
+├── frontend/
+│ ├── components/
+│ ├── pages/
+│ ├── context/
+│ ├── utils/
+│ └── assets/
+│
+└── README.md
 
-------------------------------------------------------------
+🔌 API Overview
+🔑 Authentication
+Method	Endpoint	Description
+POST	/auth/register	Register new user
+POST	/auth/login	Login and receive JWT token
+💳 Transactions
+Method	Endpoint	Description
+POST	/transactions/add	Add income or expense
+GET	/transactions/user	Fetch user transactions
+GET	/transactions/chart	Fetch analytics data
+DELETE	/transactions/{id}	Delete transaction
 
-## API Overview
+▶️ Running the Project Locally
+Backend
+cd backend
+mvn clean install
+mvn spring-boot:run
+application.properties
+spring.datasource.url=jdbc:mysql://localhost:3306/money_manager
+spring.datasource.username=root
+spring.datasource.password=your_password
+jwt.secret=your_secret_key
+Backend runs at: http://localhost:8080
 
-### Authentication
-POST /auth/register – Register user  
-POST /auth/login – Login and get JWT token  
+Frontend
+cd frontend
+npm install
+npm start
+Frontend runs at: http://localhost:5173
 
-### Transactions
-POST /transactions/add – Add income/expense  
-GET /transactions/user – Get user transactions  
-GET /transactions/chart – Fetch analytics data  
-DELETE /transactions/{id} – Delete transaction  
+🔮 Future Enhancements
+Budget planning and alerts
+Export data to PDF / Excel
+AI-based spending analysis
+Notification system
+Dark mode
 
-------------------------------------------------------------
-
-## Running the Project Locally
-
-### Backend
-cd backend  
-mvn clean install  
-mvn spring-boot:run  
-
-application.properties:
-spring.datasource.url=jdbc:mysql://localhost:3306/money_manager  
-spring.datasource.username=root  
-spring.datasource.password=your_password  
-jwt.secret=your_secret_key  
-
-### Frontend
-cd frontend  
-npm install  
-npm start  
-
-Frontend: http://localhost:5173  
-Backend: http://localhost:8080  
-
-------------------------------------------------------------
-
-## Future Enhancements
-- Budget planning
-- Export to PDF/Excel
-- AI-based spending analysis
-- Notification system
-- Dark mode
-
-------------------------------------------------------------
-
-## Author
-Sahil Shankar Kokitkar  
-GitHub: https://github.com/Sahil232stack  
+👨‍💻 Author
+Sahil Shankar Kokitkar
+Java Full Stack Developer 
+GitHub: https://github.com/Sahil232stack
 LinkedIn: https://www.linkedin.com/in/sahil-kokitkar-05970a227/

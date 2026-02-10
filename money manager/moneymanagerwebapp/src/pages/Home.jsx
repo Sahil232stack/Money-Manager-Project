@@ -1,12 +1,12 @@
 import Dashboard from "../components/Dashboard.jsx";
-import {useUser} from "../hooks/useUser.jsx";
+import { useUser } from "../hooks/useUser.jsx";
 import InfoCard from "../components/InfoCard.jsx";
-import {Coins, Wallet, WalletCards} from "lucide-react";
-import {addThousandsSeparator} from "../util/util.js";
-import {useNavigate} from "react-router-dom";
-import {useEffect, useState} from "react";
+import { Coins, Wallet, WalletCards } from "lucide-react";
+import { addThousandsSeparator } from "../util/util.js";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import axiosConfig from "../util/axiosConfig.jsx";
-import {API_ENDPOINTS} from "../util/apiEndpoints.js";
+import { API_ENDPOINTS } from "../util/apiEndpoints.js";
 import toast from "react-hot-toast";
 import RecentTransactions from "../components/RecentTransactions.jsx";
 import FinanceOverview from "../components/FinanceOverview.jsx";
@@ -29,17 +29,17 @@ const Home = () => {
             if (response.status === 200) {
                 setDashboardData(response.data);
             }
-        }catch (error) {
-            console.error('Something went wrong while fetching dashboard data:', error);
-            toast.error('Something went wrong!');
+        } catch (error) {
+            if (error.response?.status !== 401) {
+                toast.error("Something went wrong!");
+            }
         } finally {
             setLoading(false);
         }
-    }
+    };
 
     useEffect(() => {
         fetchDashboardData();
-        return () => {};
     }, []);
 
     return (
@@ -47,7 +47,6 @@ const Home = () => {
             <Dashboard activeMenu="Dashboard">
                 <div className="my-5 mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {/* Display the cards*/}
                         <InfoCard
                             icon={<WalletCards />}
                             label="Total Balance"
@@ -67,21 +66,19 @@ const Home = () => {
                             color="bg-red-800"
                         />
                     </div>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                        {/* Recent transactions */}
                         <RecentTransactions
                             transactions={dashboardData?.recentTransactions}
                             onMore={() => navigate("/expense")}
                         />
 
-                        {/* finance overview chart */}
                         <FinanceOverview
                             totalBalance={dashboardData?.totalBalance || 0}
                             totalIncome={dashboardData?.totalIncome || 0}
                             totalExpense={dashboardData?.totalExpense || 0}
                         />
 
-                        {/* Expense transactions */}
                         <Transactions
                             transactions={dashboardData?.recent5Expenses || []}
                             onMore={() => navigate("/expense")}
@@ -89,7 +86,6 @@ const Home = () => {
                             title="Recent Expenses"
                         />
 
-                        {/* Income transactions */}
                         <Transactions
                             transactions={dashboardData?.recent5Incomes || []}
                             onMore={() => navigate("/income")}
@@ -100,7 +96,7 @@ const Home = () => {
                 </div>
             </Dashboard>
         </div>
-    )
-}
+    );
+};
 
 export default Home;
